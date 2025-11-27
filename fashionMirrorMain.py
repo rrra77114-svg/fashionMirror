@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 树莓派5人像检测与穿衣夸夸程序
 使用rpicam库调用摄像头，检测人像后上传到豆包API生成夸夸文本
@@ -200,22 +199,6 @@ class FashionComplimentSystem:
         current_time = now.strftime("%Y-%m-%d %H:%M:%S")
 
         return current_time
-
-    # def emotion_recognition(self,image):
-        # """使用DeepFace库（基于OpenCV和深度学习）"""
-        # try:
-            # # 分析情绪
-            # result = DeepFace.analyze(
-                # img_path=image,
-                # actions=['emotion'],
-                # detector_backend='opencv',
-                # enforce_detection=False,  # 如果未检测到人脸则抛出异常
-                # align=True  # 对齐人脸以提高准确率
-            # )
-            # print(result)
-            # return result[0]  # 返回第一个检测到的人脸结果
-        # except Exception as e:
-            # return {"error": str(e)}
 
     def get_location(self):
         try:
@@ -513,7 +496,7 @@ class FashionComplimentSystem:
             
             logger.info("开始人像检测...")
             print("系统已启动，正在检测人像...")
-            print("按 'q' 键退出程序")
+            # print("按 'q' 键退出程序")
             
             while self.is_detecting:
                 # 捕获帧进行检测
@@ -529,9 +512,9 @@ class FashionComplimentSystem:
                         self.process_detection()
                     
                     # 检测按键输入
-                    key = cv2.waitKey(1) & 0xFF
-                    if key == ord('q'):
-                        break
+                    # key = cv2.waitKey(1) & 0xFF
+                    # if key == ord('q'):
+                    #     break
                 
                 # 控制检测频率
                 time.sleep(0.1)
